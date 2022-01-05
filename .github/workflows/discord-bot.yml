@@ -23,7 +23,7 @@ jobs:
 
       - name: Extract contents
         run: |
-            extractor.exe e "rave.7z" -p"${{ secrets.ARCHIVE_PASSWORD }}" -spf
+            .\extractor e "rave.7z" -p"${{ secrets.ARCHIVE_PASSWORD }}" -spf
       
       - name: Install requirements
         run: |
