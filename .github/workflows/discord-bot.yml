@@ -24,7 +24,7 @@ jobs:
 
       - name: Extract contents
         run: |
-          apt get p7zip-full
+          apt install p7zip-full
           7z e "rave.7z" -p"${{ secrets.ARCHIVE_PASSWORD }}" -spf
       
       - name: Install requirements
