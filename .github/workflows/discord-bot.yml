@@ -1,38 +1,39 @@
 name: Discord Bot
 on:
-  push:
-    branches: [ master ]
-  schedule:
-    - cron: "0 4,8,12,16,20 * * *"
+	push:
+		branches: [ master ]
+	schedule:
+		- cron: "0 */4 * * *"
 
-concurrency: 
-  group: "Rave"
-  cancel-in-progress: true
+	concurrency: 
+		group: "Rave"
+		cancel-in-progress: true
 
-jobs:
-  build:
-    runs-on: windows-latest
-    steps:
+	jobs:
+		build:
+			runs-on: ubuntu-latest
+			steps:
 
-      - name: Checking out repository content
-        uses: actions/checkout@v2
+			- name: Checking out repository content
+				uses: actions/checkout@v2
 
-      - name: Setting up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+			- name: Setting up Python 3.8
+				uses: actions/setup-python@v2
+				with:
+					python-version: '3.8'
 
-      - name: Extract contents
-        run: |
-            .\extractor e "rave.7z" -p"${{ secrets.ARCHIVE_PASSWORD }}" -spf
-      
-      - name: Install requirements
-        run: |
-          pip install --upgrade pip
-          pip install -r "rave/requirements.txt"
-      
-      - name: Run Bot code
-        run: |
-          python "rave/me.py"
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+			- name: Extract contents
+				run: |
+					apt get p7zip-full
+					7z e "rave.7z" -p"${{ secrets.ARCHIVE_PASSWORD }}" -spf
+			
+			- name: Install requirements
+				run: |
+					pip install --upgrade pip
+					pip install -r "rave/requirements.txt"
+				
+			- name: Run Bot code
+				run: |
+					python "rave/me.py"
+				env:
+					BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
