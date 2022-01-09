@@ -29,10 +29,10 @@ jobs:
       - name: Install requirements
         run: |
           pip install --upgrade pip
-          pip install -r "rave/requirements.txt"
+          pip install -r "./RAVE/requirements.txt"
       
       - name: Run Bot code
         run: |
-          python "rave/me.py"
+          python "./RAVE/me.py"
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
