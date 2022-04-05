@@ -29,6 +29,6 @@ jobs:
       
       - name: Run Bot code
         run: |
-          python "./RAVE/me.py"
+          python "me.py"
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}

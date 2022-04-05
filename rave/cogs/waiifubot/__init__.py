@@ -27,7 +27,7 @@ class CleverBotCog(commands.Cog):
     def __init__(self, bot):
         self.bot: commands.Bot = bot
 
-        self.clients: dict[int, CleverBotClient] = {}
+        self.clients = {}
 
         self.user_ratelimit = Ratelimit(exemptions=[742641737213673483])
 
