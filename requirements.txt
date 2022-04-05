@@ -5,3 +5,4 @@ httpx
 ujson
 regex
 yarl
+anitopy
