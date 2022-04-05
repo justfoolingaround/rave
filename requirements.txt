@@ -6,3 +6,4 @@ ujson
 regex
 yarl
 anitopy
+python-dotenv
