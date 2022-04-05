@@ -38,7 +38,7 @@ class CleverBotCog(commands.Cog):
         _, (url, service_endpoint) = random.choice(list(SERVICES.items()))
 
         client = await CleverBotClient.ainitialise(
-            httpx.AsyncClient(headers=headers),
+            httpx.AsyncClient(headers=headers, follow_redirects=True, timeout=30.0),
             url=url,
             service_endpoint=service_endpoint,
         )
