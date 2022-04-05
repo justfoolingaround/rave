@@ -1,0 +1,7 @@
+discord.py
+humanize
+jishaku
+httpx
+ujson
+regex
+yarl
