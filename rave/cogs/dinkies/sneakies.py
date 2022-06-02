@@ -1,8 +1,8 @@
 import io
 
-import disnake
-from disnake.ext import commands
-from disnake.http import Route
+import discord
+from discord.ext import commands
+from discord.http import Route
 
 from .utils import SneakyHandler, UserType
 
@@ -28,7 +28,7 @@ class SneakyCatcher(commands.Cog):
             presence_count = await SneakyHandler.get_real_online_count(
                 self.bot, self.guild_id
             )
-        except disnake.Forbidden:
+        except discord.Forbidden:
             return
 
         self.sneaky_handler = SneakyHandler(
@@ -45,7 +45,7 @@ class SneakyCatcher(commands.Cog):
         )
 
     @commands.Cog.listener()
-    async def on_member_join(self, member: disnake.Member):
+    async def on_member_join(self, member: discord.Member):
 
         if self.sneaky_handler is None or member.guild_id != self.guild_id:
             return
@@ -59,7 +59,7 @@ class SneakyCatcher(commands.Cog):
             self.sneaky_handler.real_online_count += 1
 
     @commands.Cog.listener()
-    async def on_member_remove(self, member: disnake.Member):
+    async def on_member_remove(self, member: discord.Member):
 
         if self.sneaky_handler is None or member.guild.id != self.guild_id:
             return
@@ -74,7 +74,7 @@ class SneakyCatcher(commands.Cog):
             self.sneaky_handler.real_online_count -= 1
 
     @commands.Cog.listener()
-    async def on_presence_update(self, before: disnake.Member, after: disnake.Member):
+    async def on_presence_update(self, before: discord.Member, after: discord.Member):
 
         if self.sneaky_handler is None or before.guild.id != self.guild_id:
             return
@@ -108,7 +108,7 @@ class SneakyCatcher(commands.Cog):
                 )
 
     @commands.Cog.listener()
-    async def on_typing(self, channel: disnake.TextChannel, user, when):
+    async def on_typing(self, channel: discord.TextChannel, user, when):
 
         if (
             self.sneaky_handler is None
@@ -156,4 +156,4 @@ class SneakyCatcher(commands.Cog):
             "\n".join(map(str, self.sneaky_handler.sneakies)).encode("utf-8")
         )
 
-        return await ctx.send(file=disnake.File(sneakies_io, filename="sneakies.txt"))
+        return await ctx.send(file=discord.File(sneakies_io, filename="sneakies.txt"))
