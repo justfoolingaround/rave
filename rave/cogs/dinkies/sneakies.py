@@ -74,7 +74,7 @@ class SneakyCatcher(commands.Cog):
             self.sneaky_handler.real_online_count -= 1
 
     @commands.Cog.listener()
-    async def on_presence_update(self, before: discord.Member, after: discord.Member):
+    async def on_member_update(self, before: discord.Member, after: discord.Member):
 
         if self.sneaky_handler is None or before.guild.id != self.guild_id:
             return
