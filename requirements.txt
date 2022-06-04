@@ -1,6 +1,7 @@
 discord.py
 humanize
 jishaku
+git+https://github.com/justfoolingaround/gitcord
 httpx
 ujson
 regex

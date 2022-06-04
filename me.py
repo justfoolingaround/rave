@@ -12,10 +12,11 @@ bot = RaveBot(
 )
 
 bot.load_extension("jishaku")
+bot.load_extension("gitcord")
+
 bot.load_extension("rave.cogs.client.events")
 bot.load_extension("rave.cogs.client.base")
 bot.load_extension("rave.cogs.sauce")
-bot.load_extension("rave.cogs.gitcord")
 bot.load_extension("rave.cogs.waiifubot")
 bot.load_extension("rave.cogs.dinkies")
 
