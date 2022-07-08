@@ -47,23 +47,24 @@ class CleverBotCog(commands.Cog):
     @commands.Cog.listener("on_message")
     async def on_channels_message(self, message: discord.Message, *, sudo=False):
 
-        if not sudo and (
-            not message.guild
-            or message.author.bot
-            or message.channel.id
-            not in list(
-                map(
-                    lambda channel: channel.id,
-                    iter_channel_names(message.guild.channels, from_names=RAW_CHANNEL),
+        if not sudo:
+            if (
+                message.guild is None
+                or message.author.bot
+                or message.channel.id
+                not in list(
+                    map(
+                        lambda channel: channel.id,
+                        iter_channel_names(message.guild.channels, from_names=RAW_CHANNEL),
+                    )
                 )
-            )
-            and (
-                message.reference
-                and message.reference.message_id
-                not in self.sent_messages[message.author.id]
-            )
-        ):
-            return
+                or (
+                    message.reference
+                    and message.reference.message_id
+                    not in self.sent_messages[message.author.id]
+                )
+            ):
+                return
 
         webservice = self.clever_bot_services[message.author.id]
 
