@@ -141,7 +141,7 @@ class CleverBotWebService:
                 )
                 is_response_ok = response.status_code == 200
 
-                if is_response_ok:
+                if not is_response_ok:
                     time.sleep(1.5)
 
             bot_message, self.session_id, self.xai, *_ = response.text.split("\r")
