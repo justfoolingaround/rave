@@ -1,6 +1,6 @@
-from discord.ext import commands
-
 from collections import deque
+
+from discord.ext import commands
 
 from .error_handler import command_error_handler
 

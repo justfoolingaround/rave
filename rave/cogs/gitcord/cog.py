@@ -2,7 +2,7 @@ import discord
 import httpx
 from discord.ext import commands
 
-from .utils import GITHUB_REPO_REGEX, generate_codelines, Ratelimit
+from .utils import GITHUB_REPO_REGEX, Ratelimit, generate_codelines
 
 
 class GitCord(commands.Cog):

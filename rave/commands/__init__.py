@@ -1,8 +1,7 @@
+import discord
 from discord.abc import Messageable
 from discord.embeds import Embed
-from discord.ext.commands import Bot, Context, Cog
-import discord
-
+from discord.ext.commands import Bot, Cog, Context
 from jishaku.paginators import (
     PaginatorEmbedInterface,
     PaginatorInterface,

@@ -1,7 +1,7 @@
-from discord.ext.commands.errors import *
-from discord.errors import *
-
 import traceback
+
+from discord.errors import *
+from discord.ext.commands.errors import *
 
 
 def expand_exception_args(error):
