@@ -153,10 +153,6 @@ class CleverBotWebService:
 
 SERVICES = {
     "cleverbot-official": ("https://www.cleverbot.com/"),
-    "boibot": ("https://www.boibot.com/"),
-    "pewdiebot": ("https://www.pewdiebot.com/"),
-    "eviebot": ("https://www.eviebot.com/"),
-    "thoughtscreen": ("https://www.thoughtscreen.com/"),
 }
 
 
